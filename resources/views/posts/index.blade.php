@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="/ShareYou/public/posts/create" class="btn btn-default">Create Post</a>
     <h3>Posts</h3>
     @if(count($posts)>0)
        @foreach($posts as $post)

@@ -16,6 +16,10 @@
               <li><a href="/ShareYou/public/services">Services</a></li>
               <li><a href="/ShareYou/public/posts">Blog</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/ShareYou/public">User Name</a></li>
+                
+              </ul>
           </div><!--/.nav-collapse -->
         </div>
       </nav>
