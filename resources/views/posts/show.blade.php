@@ -3,6 +3,8 @@
 @section('content')
 <a class="btn btn-default" href="/ShareYou/public/posts">Back</a>
 <h3>{{$post->title}}</h3>
+<img style="width:100px" src="/ShareYou/public/storage/cover_images/{{$post->cover_image}}">
+<br><br>
 <div>
     {!!$post->body!!}
 </div>
