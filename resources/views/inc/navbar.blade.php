@@ -14,6 +14,7 @@
               <li><a href="/ShareYou/public">Home</a></li>
               <li><a href="/ShareYou/public/about">About</a></li>
               <li><a href="/ShareYou/public/services">Services</a></li>
+              <li><a href="/ShareYou/public/posts">Blog</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
