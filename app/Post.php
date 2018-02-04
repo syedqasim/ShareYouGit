@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\User;
 class Post extends Model
 {
     // Table Name
@@ -12,4 +12,8 @@ class Post extends Model
     public $primaryKey='id';
     // Time stamp
     public $timestamps=true;
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
