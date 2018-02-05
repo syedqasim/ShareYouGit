@@ -18,7 +18,7 @@
                         @foreach($posts as $post)
                         <tr>
                                 <td>{{$post->title}}</td>
-                                <td><a class="btn btn-default" href="/ShareYou/public/posts/{{$post->id}}/edit">Edit</a></td>
+                                <td><a class="btn btn-default" href="/posts/{{$post->id}}/edit">Edit</a></td>
                                 <td>
 
                                         {!! Form::open(['action'=>['PostsController@destroy',$post->id],'method'=>'POST' , 'class'=>'pull-right'] ) !!}
