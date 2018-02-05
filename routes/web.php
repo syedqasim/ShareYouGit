@@ -35,6 +35,7 @@
  Route::get('/ads/approvals', 'AdsController@approvals');
  Route::get('/ads/approve/{id}', 'AdsController@approve');
  Route::get('/ads/reject/{id}', 'AdsController@reject');
+ Route::get('/ads/myads', 'AdsController@myads');
  Route::resource('posts','PostsController');
  Route::resource('ads','AdsController');
 Auth::routes();

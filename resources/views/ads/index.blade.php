@@ -8,9 +8,6 @@
     @if(count($ads)>0)
     <div class="row">
        @foreach($ads as $ad)
-       
-
-
                 <div class="col-md-4 col-sm-4">
                         <div class="well">
                         <h3><a href="/ads/{{$ad->id}}"> {{$ad->title}} </a></h3>
@@ -19,8 +16,6 @@
                         </small>
                  </div>
                 </div>
-
-      
        @endforeach
     </div>
     <div class="row">

@@ -69,7 +69,7 @@ class AdsController extends Controller
         $add->user_id= auth()->user()->id;
         $add->save();
 
-        return redirect('/ads')->with('success','Add created');
+        return redirect('/ads/myads')->with('success','Add created');
     }
 
     /**
@@ -138,5 +138,12 @@ class AdsController extends Controller
         $ad->delete();
 
         return redirect('/ads/approvals')->with('success','Ad rejected');
+    }
+    public function myads()
+    {
+        $ads= Ads::where('user_id', auth()->user()->id)
+            ->orderBy('created_at','desc')
+            ->paginate(6);
+        return View('ads.myads')->with('ads',$ads);
     }
 }

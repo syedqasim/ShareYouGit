@@ -24,7 +24,9 @@
                       <li><a href="/posts">Blog</a></li>
                       <li><a href="/ads">Ads</a></li>
                       <li><a href="/community">Community</a></li>
-
+                      @if (!Auth::guest())
+                        <li><a href="/ads/myads">MyAds</a></li>
+                      @endif
                       @role('Admin')
                       <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
