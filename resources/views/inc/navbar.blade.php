@@ -23,6 +23,19 @@
                       <li><a href="/services">Services</a></li>
                       <li><a href="/posts">Blog</a></li>
                       <li><a href="/ads">Ads</a></li>
+                      <li><a href="/community">Community</a></li>
+
+                      @role('Admin')
+                      <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i aria-hidden="true"></i>Admin<b class="caret"></b>
+                            </a>
+                        <ul class="dropdown-menu">
+                                <li><a href="/ads/approvals">Approvals</a></li>
+                        </ul>
+                    </li>
+                      @endrole
+
                     </ul>
 
                   <!-- Right Side Of Navbar -->

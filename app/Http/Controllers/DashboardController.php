@@ -32,4 +32,5 @@ class DashboardController extends Controller
         $roles = auth()->user()->roles()->pluck('name');
         return view('test')->with('roles',$roles);
     }
+   
 }

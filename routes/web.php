@@ -32,10 +32,14 @@
  Route::get('/','PagesController@index' );
  Route::get('/about','PagesController@about' );
  Route::get('/services','PagesController@services' );
-
+ Route::get('/ads/approvals', 'AdsController@approvals');
+ Route::get('/ads/approve/{id}', 'AdsController@approve');
+ Route::get('/ads/reject/{id}', 'AdsController@reject');
  Route::resource('posts','PostsController');
  Route::resource('ads','AdsController');
 Auth::routes();
-
+//Route::get('/ads/approvals', 'AdsController@approvals');
+Route::get('/community', 'CommunityController@index');
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard/approvals', 'DashboardController@approvals');
 Route::get('/dashboard/test', 'DashboardController@test');

@@ -22,8 +22,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-      
-        $ads= Ads::orderBy('created_at','desc')->paginate(4);
+        $ads= Ads::where('status', 'active')->orderBy('created_at','desc')->paginate(4);
        return View('ads.index')->with('ads',$ads);
     }
 
@@ -45,12 +44,28 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
+        $isRegularUser = auth()->user()->hasRole('Regular');
+        if($isRegularUser)
+        {
+            $countAds = Ads::where('user_id', auth()->user()->id)->count();
+            if($countAds>=3)
+            {
+                return redirect('/ads')->with('error','You can post upto 3 ads.');
+            }
+        }
+        
+
+
         $this->validate($request,[
             'title'=>'required'
         ]);
 
         $add=new Ads;
         $add->title=$request->input('title');
+        if($isRegularUser)
+            $add->status='inactive';
+        else
+            $add->status='active';
         $add->user_id= auth()->user()->id;
         $add->save();
 
@@ -101,5 +116,27 @@ class AdsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function approvals()
+    {
+         $ads= Ads::where('status', 'inactive')->orderBy('created_at','asc')->paginate(4);
+        return View('ads.approvals')->with('ads',$ads);
+    }
+    public function approve($id)
+    {
+        $ad=Ads::find($id);
+        $ad->status='active';
+        $ad->save();
+
+        return redirect('/ads/approvals')->with('success','Ad approved');
+    }
+    public function reject($id)
+    {
+        $ad=Ads::find($id);
+        $ad->delete();
+
+        return redirect('/ads/approvals')->with('success','Ad rejected');
     }
 }
