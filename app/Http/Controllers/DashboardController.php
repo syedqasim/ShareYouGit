@@ -27,4 +27,9 @@ class DashboardController extends Controller
         $user=User::find($user_id);
         return view('dashboard')->with('posts',$user->posts);
     }
+    public function test()
+    {
+        $roles = auth()->user()->roles()->pluck('name');
+        return view('test')->with('roles',$roles);
+    }
 }

@@ -34,6 +34,8 @@
  Route::get('/services','PagesController@services' );
 
  Route::resource('posts','PostsController');
+ Route::resource('ads','AdsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard/test', 'DashboardController@test');

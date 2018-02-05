@@ -9,6 +9,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
+        "spatie/laravel-permission": "^1.15",
         "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {
