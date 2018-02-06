@@ -6,6 +6,26 @@
 <p><a class="btn btn-primary" href="/ads/create">Create Ad</a><p>
 @endif
     @if(count($ads)>0)
+
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Search Ads
+            </div>
+            <div class="panel-body">
+                    {!! Form::open(['action' => 'AdsController@search', 'method'=>'GET' ,'enctype'=>'multipart/form-data' ]) !!}
+                <div class="col-md-3">
+                        <div class="form-group">
+                                {{Form::label('title','Category')}}
+                                {{Form::select('cat_id', $categoryList,null,['class'=>'form-control'])}}
+                        </div>
+                        {{Form::submit('Search',['class'=>'btn btn-primary'])}}
+                </div>
+                {!! Form::close() !!}
+            </div
+        </div>
+    </div>
+
     <div class="row">
        @foreach($ads as $ad)
                 <div class="col-md-4 col-sm-4">

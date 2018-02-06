@@ -23,8 +23,18 @@ class AdsController extends Controller
      */
     public function index()
     {
+        $categoryList = Category::pluck('name','id');
         $ads= Ads::where('status', 'active')->orderBy('created_at','desc')->paginate(4);
-       return View('ads.index')->with('ads',$ads);
+       return View('ads.index',compact('ads','categoryList'));
+    }
+    public function search(Request $request)
+    {
+        $categoryList = Category::pluck('name','id');
+        $cat_id = $request->input('cat_id');
+        $ads= Ads::where('status', 'active')
+        ->where('cat_id', $cat_id)
+        ->orderBy('created_at','desc')->paginate(4);
+       return View('ads.index',compact('ads','categoryList'));
     }
 
     /**
@@ -150,7 +160,6 @@ class AdsController extends Controller
     {
         $ads= Ads:: where('user_id', auth()->user()->id)
             ->orderBy('created_at','desc')
-           
             ->paginate(6);
         return View('ads.myads')->with('ads',$ads);
     }

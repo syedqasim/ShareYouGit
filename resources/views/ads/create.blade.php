@@ -10,7 +10,7 @@
         <div class="form-group">
                 {{Form::label('title','Category')}}
                 {{Form::select('cat_id', $categoryList,null,['class'=>'form-control'])}}
-            </div>
+        </div>
 
         
        
