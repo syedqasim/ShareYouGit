@@ -7,6 +7,12 @@
             {{Form::label('title','Title')}}
             {{Form::text('title','',['class'=>'form-control', 'placeholder'=>'Title' ])}}
         </div>
+        <div class="form-group">
+                {{Form::label('title','Category')}}
+                {{Form::select('cat_id', $categoryList,null,['class'=>'form-control'])}}
+            </div>
+
+        
        
         {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}   

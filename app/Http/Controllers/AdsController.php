@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Ads;
+use App\Category;
 use Illuminate\Http\Request;
 
 class AdsController extends Controller
@@ -33,7 +34,9 @@ class AdsController extends Controller
      */
     public function create()
     {
-        return View('ads.create');
+        $categoryList = Category::pluck('name','id');
+        $selected = 1; //let it is the id of Bangladesh(my country) :)
+        return View('ads.create',compact('categoryList','selected'));
     }
 
     /**
@@ -62,6 +65,7 @@ class AdsController extends Controller
 
         $add=new Ads;
         $add->title=$request->input('title');
+        $add->cat_id=$request->input('cat_id');
         if($isRegularUser)
             $add->status='inactive';
         else
@@ -144,8 +148,9 @@ class AdsController extends Controller
     }
     public function myads()
     {
-        $ads= Ads::where('user_id', auth()->user()->id)
+        $ads= Ads:: where('user_id', auth()->user()->id)
             ->orderBy('created_at','desc')
+           
             ->paginate(6);
         return View('ads.myads')->with('ads',$ads);
     }

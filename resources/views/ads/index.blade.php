@@ -11,6 +11,7 @@
                 <div class="col-md-4 col-sm-4">
                         <div class="well">
                         <h3><a href="/ads/{{$ad->id}}"> {{$ad->title}} </a></h3>
+                        <h4>{{$ad->category->name}}</h4>
                         <small>Posted at {{$ad->created_at}}
                                 by {{$ad->user->name}}
                         </small>
