@@ -15,6 +15,12 @@
                     <small>Posted at {{$ad->created_at}}
                             by {{$ad->user->name}}
                     </small>
+                    <div class="row pull-right">
+                            {!! Form::open(['action'=>['AdsController@destroy',$ad->id],'method'=>'POST' ] ) !!}
+                            {{ Form::hidden('_method','DELETE') }}
+                            {{Form::submit('Delete',['class'=>'btn btn-danger btn-sm'])}}
+                            {!!Form::close() !!}
+                    </div>
              </div>
             </div>
    @endforeach

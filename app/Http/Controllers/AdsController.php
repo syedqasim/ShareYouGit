@@ -50,7 +50,7 @@ class AdsController extends Controller
             $countAds = Ads::where('user_id', auth()->user()->id)->count();
             if($countAds>=3)
             {
-                return redirect('/ads')->with('error','You can post upto 3 ads.');
+                return redirect('/ads/myads')->with('error','You can post upto 3 ads.');
             }
         }
         
@@ -115,7 +115,10 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad=Ads::find($id);
+        $ad->delete();
+
+        return redirect('/ads/myads')->with('success','Ad deleted');
     }
 
 
