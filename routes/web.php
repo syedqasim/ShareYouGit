@@ -11,10 +11,10 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+ Route::get('/', function () {
+     return view('welcome');
     
-// });
+ });
 // Route::get('/hello', function () {
 //     return '<h1>Hello World</h1>';
     
@@ -29,19 +29,19 @@
 // });
 
 
- Route::get('/','PagesController@index' );
- Route::get('/about','PagesController@about' );
- Route::get('/services','PagesController@services' );
- Route::get('/ads/approvals', 'AdsController@approvals');
- Route::get('/ads/search', 'AdsController@search');
- Route::get('/ads/approve/{id}', 'AdsController@approve');
- Route::get('/ads/reject/{id}', 'AdsController@reject');
- Route::get('/ads/myads', 'AdsController@myads');
- Route::resource('posts','PostsController');
- Route::resource('ads','AdsController');
-Auth::routes();
-//Route::get('/ads/approvals', 'AdsController@approvals');
-Route::get('/community', 'CommunityController@index');
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/dashboard/approvals', 'DashboardController@approvals');
-Route::get('/dashboard/test', 'DashboardController@test');
+//  Route::get('/','PagesController@index' );
+//  Route::get('/about','PagesController@about' );
+//  Route::get('/services','PagesController@services' );
+//  Route::get('/ads/approvals', 'AdsController@approvals');
+//  Route::get('/ads/search', 'AdsController@search');
+//  Route::get('/ads/approve/{id}', 'AdsController@approve');
+//  Route::get('/ads/reject/{id}', 'AdsController@reject');
+//  Route::get('/ads/myads', 'AdsController@myads');
+// Route::resource('posts','PostsController');
+  Route::resource('/api/ads','AdsController');
+ Auth::routes();
+// //Route::get('/ads/approvals', 'AdsController@approvals');
+// Route::get('/community', 'CommunityController@index');
+// Route::get('/dashboard', 'DashboardController@index');
+// Route::get('/dashboard/approvals', 'DashboardController@approvals');
+// Route::get('/dashboard/test', 'DashboardController@test');

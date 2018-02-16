@@ -1,9 +1,14 @@
 @extends('layouts.app')
 @section('content')
-<h3>Advertisements</h3>
+<div class="row">
+        <h3>Advertisements</h3>
+</div>
+
 
 @if(!Auth::guest())
-<p><a class="btn btn-primary" href="/ads/create">Create Ad</a><p>
+<div class="row">
+    <p><a class="btn btn-primary" href="/ads/create">Create Ad</a><p>
+    </div>
 @endif
     @if(count($ads)>0)
 
