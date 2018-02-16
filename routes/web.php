@@ -39,7 +39,14 @@
 //  Route::get('/ads/myads', 'AdsController@myads');
 // Route::resource('posts','PostsController');
   Route::resource('/api/ads','AdsController');
- Auth::routes();
+  //Route::post('/api/users/login', 'UserController@login');
+ // Auth::routes();
+ Route::post('/api/users/add', 'UserController@add');
+
+//  Route::post('/login', 'LoginController@login');
+//  Route::post('/login/refresh', 'LoginController@refresh');
+//  Route::post('/logout', 'LoginController@logout');
+ 
 // //Route::get('/ads/approvals', 'AdsController@approvals');
 // Route::get('/community', 'CommunityController@index');
 // Route::get('/dashboard', 'DashboardController@index');
