@@ -34,5 +34,15 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'github' => [
+        'client_id' => 'cff70129993c86996d74',
+        'client_secret' => 'a271e0ec7dd4150cc377e4160ef525a307dbb75a',
+        'redirect' => 'http://shareyou.com:8012/auth/github/callback',
+    ],
+    'google' => [
+        'client_id'     => env('GOOGLE_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
+    ],
 
 ];

@@ -40,15 +40,21 @@
 // Route::resource('posts','PostsController');
   Route::resource('/api/ads','AdsController');
   //Route::post('/api/users/login', 'UserController@login');
- // Auth::routes();
+  
  Route::post('/api/users/add', 'UserController@add');
 
-//  Route::post('/login', 'LoginController@login');
+  //Route::post('auth/login', 'LoginController@login');
 //  Route::post('/login/refresh', 'LoginController@refresh');
 //  Route::post('/logout', 'LoginController@logout');
  
 // //Route::get('/ads/approvals', 'AdsController@approvals');
 // Route::get('/community', 'CommunityController@index');
-// Route::get('/dashboard', 'DashboardController@index');
+ Route::get('/dashboard', 'DashboardController@index');
+ Route::get('/dashboard/test', 'DashboardController@test');
 // Route::get('/dashboard/approvals', 'DashboardController@approvals');
 // Route::get('/dashboard/test', 'DashboardController@test');
+Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
+Route::get('auth/google', 'Auth\AuthController@redirectToGoogleProvider');
+Route::get('auth/google/callback', 'Auth\AuthController@handleProviderGoogleCallback');
+Auth::routes();

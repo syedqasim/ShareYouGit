@@ -11,10 +11,10 @@ class DashboardController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,9 +23,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user_id=auth()->user()->id;
-        $user=User::find($user_id);
-        return view('dashboard')->with('posts',$user->posts);
+        return view('dashboard.index')->with('user',auth()->user());
+        // $user_id=auth()->user()->id;
+        // $user=User::find($user_id);
+        // return view('dashboard')->with('posts',$user->posts);
     }
     public function test()
     {

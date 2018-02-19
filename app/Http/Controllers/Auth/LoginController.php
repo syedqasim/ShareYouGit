@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
-use Infrastructure\Auth\LoginProxy;
-use Infrastructure\Auth\Requests\LoginRequest;
+//use Infrastructure\Auth\LoginProxy;
+//use Infrastructure\Auth\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -34,20 +34,20 @@ class LoginController extends Controller
 
     private $loginProxy;
 
-    public function __construct(LoginProxy $loginProxy)
-    {
-        $this->loginProxy = $loginProxy;
-    }
+    // public function __construct(LoginProxy $loginProxy)
+    // {
+    //     $this->loginProxy = $loginProxy;
+    // }
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('guest')->except('logout');
-    // }
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 
     // public function login(LoginRequest $request)
     // {
